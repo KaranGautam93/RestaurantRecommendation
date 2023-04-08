@@ -28,6 +28,6 @@ public class SortByPrimaryCuisinePrimaryCostBracketRatingGreaterThanEqualTo4 ext
         filteredSorted = this.filterByCuisine(filteredSorted, cuisineType);
         filteredSorted = this.filterByCostBracket(filteredSorted, costBracket);
 
-        return filteredSorted;
+        return this.getNRestaurants(filteredSorted, n_restaurants);
     }
 }

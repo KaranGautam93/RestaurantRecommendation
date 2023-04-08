@@ -11,6 +11,8 @@ public abstract class Sort {
     protected Sort next;
     protected SortType sortType;
 
+    protected static final int n_restaurants = 100;
+
     public Sort(Sort nextOrder) {
         this.next = nextOrder;
     }
@@ -117,5 +119,10 @@ public abstract class Sort {
         }
 
         return filtered;
+    }
+
+    public List<Restaurant> getNRestaurants(List<Restaurant> availableRestaurants, int n) {
+        return availableRestaurants.subList(0, n);
+
     }
 }

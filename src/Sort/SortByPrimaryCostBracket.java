@@ -52,6 +52,6 @@ public class SortByPrimaryCostBracket extends Sort {
 
         filteredSorted = this.sortByFeaturedType(filteredSorted, true);
 
-        return filteredSorted;
+        return this.getNRestaurants(filteredSorted, n_restaurants);
     }
 }

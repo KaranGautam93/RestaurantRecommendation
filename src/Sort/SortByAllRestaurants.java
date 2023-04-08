@@ -14,6 +14,6 @@ public class SortByAllRestaurants extends Sort {
 
     @Override
     public List<Restaurant> sortRestaurants(User user, List<Restaurant> availableRestaurants, SortType sortType) {
-        return availableRestaurants;
+        return this.getNRestaurants(availableRestaurants, n_restaurants);
     }
 }

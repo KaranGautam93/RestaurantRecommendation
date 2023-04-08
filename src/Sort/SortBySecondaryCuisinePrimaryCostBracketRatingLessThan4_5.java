@@ -34,6 +34,6 @@ public class SortBySecondaryCuisinePrimaryCostBracketRatingLessThan4_5 extends S
 
         filteredSorted = this.filterByRating(filteredSorted, 4.5f, RatingComparisonOperator.LessThan);
 
-        return filteredSorted;
+        return this.getNRestaurants(filteredSorted, n_restaurants);
     }
 }

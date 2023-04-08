@@ -21,6 +21,6 @@ public class SortByTop4NewlyCreatedRestaurantsByRating extends Sort {
         List<Restaurant> filtered = this.filterNewlyCreatedRestaurantsByCreatedHours(availableRestaurants, 48);
         filtered = this.selectTopNRatedRestaurants(filtered, 4);
 
-        return filtered;
+        return this.getNRestaurants(filtered, n_restaurants);
     }
 }

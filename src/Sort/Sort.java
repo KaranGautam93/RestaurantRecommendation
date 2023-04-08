@@ -12,6 +12,7 @@ public abstract class Sort {
     protected SortType sortType;
 
     protected static final int n_restaurants = 100;
+    protected static final int newly_created_restaurants_hours_diff = 48;
 
     public Sort(Sort nextOrder) {
         this.next = nextOrder;

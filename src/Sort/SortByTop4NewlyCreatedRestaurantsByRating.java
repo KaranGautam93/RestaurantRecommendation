@@ -18,7 +18,7 @@ public class SortByTop4NewlyCreatedRestaurantsByRating extends Sort {
             return this.next.sortRestaurants(user, availableRestaurants, sortType);
         }
 
-        List<Restaurant> filtered = this.filterNewlyCreatedRestaurantsByCreatedHours(availableRestaurants, 48);
+        List<Restaurant> filtered = this.filterNewlyCreatedRestaurantsByCreatedHours(availableRestaurants, newly_created_restaurants_hours_diff);
         filtered = this.selectTopNRatedRestaurants(filtered, 4);
 
         return this.getNRestaurants(filtered, n_restaurants);

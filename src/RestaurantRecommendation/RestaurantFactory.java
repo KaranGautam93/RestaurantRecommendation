@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class RestaurantFactory {
 
-    private static final int max_restaurants = 1000000;
     private static final int max_cost_bracket = 5;
     private static final float max_rating = 5.0f;
 
@@ -14,7 +13,7 @@ public class RestaurantFactory {
 
         Date date = new Date(random.nextLong(System.currentTimeMillis() - 500000000, System.currentTimeMillis()));
 
-        return new Restaurant(random.nextInt(id, max_restaurants),
+        return new Restaurant(id,
                 CuisineType.values()[random.nextInt(CuisineType.values().length)], random.nextInt(1, max_cost_bracket),
                 Float.parseFloat(String.format("%.2f", random.nextFloat(0, max_rating))), random.nextBoolean(), date);
     }

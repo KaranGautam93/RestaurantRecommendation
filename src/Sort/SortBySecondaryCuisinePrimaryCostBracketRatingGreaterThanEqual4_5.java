@@ -5,6 +5,7 @@ import RestaurantRecommendation.CuisineType;
 import RestaurantRecommendation.Restaurant;
 import RestaurantRecommendation.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SortBySecondaryCuisinePrimaryCostBracketRatingGreaterThanEqual4_5 extends Sort {
@@ -28,10 +29,12 @@ public class SortBySecondaryCuisinePrimaryCostBracketRatingGreaterThanEqual4_5 e
         List<Restaurant> filteredSorted = this.filterByRating(availableRestaurants, 4.5f, RatingComparisonOperator.GreaterThanEqualTo);
         filteredSorted = this.filterByCostBracket(filteredSorted, primaryCostBracket);
 
+        List<Restaurant> secondary = new ArrayList<>();
+
         for (int i = 0; i < secondaryCuisines.length; i++) {
-            filteredSorted = this.filterByCuisine(filteredSorted, secondaryCuisines[i]);
+            secondary.addAll(this.filterByCuisine(filteredSorted, secondaryCuisines[i]));
         }
 
-        return this.getNRestaurants(filteredSorted, n_restaurants);
+        return this.getNRestaurants(secondary, n_restaurants);
     }
 }

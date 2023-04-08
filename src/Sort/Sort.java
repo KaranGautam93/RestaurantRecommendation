@@ -122,7 +122,11 @@ public abstract class Sort {
     }
 
     public List<Restaurant> getNRestaurants(List<Restaurant> availableRestaurants, int n) {
-        return availableRestaurants.subList(0, n);
+        if (availableRestaurants.size() > n) {
+            return availableRestaurants.subList(0, n);
+        }
+
+        return availableRestaurants;
 
     }
 }

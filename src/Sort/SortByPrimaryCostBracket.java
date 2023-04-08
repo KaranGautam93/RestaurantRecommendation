@@ -4,6 +4,7 @@ import RestaurantRecommendation.CuisineType;
 import RestaurantRecommendation.Restaurant;
 import RestaurantRecommendation.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SortByPrimaryCostBracket extends Sort {
@@ -34,18 +35,22 @@ public class SortByPrimaryCostBracket extends Sort {
             int costBrackets[] = user.getSecondaryBracket(topBracket);
 
             //secondary cuisine primary cost bracket
+            List<Restaurant> secondary = new ArrayList<>();
+
             for (int i = 0; i < cuisineTypes.length; i++) {
-                filteredSorted = this.filterByCuisine(filteredSorted, cuisineTypes[i]);
+                secondary.addAll(this.filterByCuisine(filteredSorted, cuisineTypes[i]));
             }
-            List<Restaurant> filteredSecondaryCuisine = this.filterByCostBracket(filteredSorted, topBracket);
+            List<Restaurant> filteredSecondaryCuisine = this.filterByCostBracket(secondary, topBracket);
 
 
             //secondary cost bracket primary cuisine
             filteredSorted = availableRestaurants;
+            secondary = new ArrayList<>();
+
             for (int i = 0; i < costBrackets.length; i++) {
-                filteredSorted = this.filterByCostBracket(filteredSorted, costBrackets[i]);
+                secondary.addAll(this.filterByCostBracket(filteredSorted, costBrackets[i]));
             }
-            filteredSorted = this.filterByCuisine(filteredSorted, topCuisine);
+            filteredSorted = this.filterByCuisine(secondary, topCuisine);
 
             filteredSorted = this.uniqueRestaurants(filteredSecondaryCuisine, filteredSorted);
         }
